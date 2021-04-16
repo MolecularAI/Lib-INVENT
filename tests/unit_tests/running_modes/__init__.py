@@ -1,0 +1,9 @@
+from tests.unit_tests.running_modes.reinforcement_learning import TestSimpleReinforcement, TestMAULI, \
+    TestSDAP, TestSelectiveReactionFilter, TestSelectiveReactionFilterSingleReaction
+from tests.unit_tests.running_modes.reinforcement_learning.reaction_filters import \
+    TestNonSelectiveReactionFiltersNoReaction, TestNonSelectiveReactionFilters
+from tests.unit_tests.running_modes.scaffold_decoration import TestMultipleScaffoldDecorating, \
+    TestSingleScaffoldDecorating
+from tests.unit_tests.running_modes.transfer_learning import TestTransferLearning
+from tests.unit_tests.running_modes.tuples_likelihood_computation import TestComputeScaffoldDecorationLikelihoods
+from tests.unit_tests.running_modes.create_model import TestCreateModel

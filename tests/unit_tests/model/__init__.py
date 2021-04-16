@@ -1,0 +1,1 @@
+from tests.unit_tests.model.decorator_model_test import TestDecoratorModel

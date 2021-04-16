@@ -1,0 +1,12 @@
+{
+	"run_type": "inference",
+	"parameters": {
+		"model_path": "trained_models/reaction_based.model",
+		"input_scaffold_path": "</path/to/scaffolds.smi>",
+		"output_path": "</path/to/output.csv",
+		"logging_path": "</path/to/log/folder>",
+		"batch_size": 1,
+		"number_of_decorations_per_scaffold": 32,
+		"randomize": true
+	}
+}

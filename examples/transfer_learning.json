@@ -1,0 +1,24 @@
+{
+	"run_type": "transfer_learning",
+	"parameters": {
+		"model_path": "trained_models/reaction_based.model",
+		"training_set_path": "</path/to/sliced/train.smi>",
+		"output_path": "</path/to/output/folder>",
+		"validation_sets_path": "</path/to/sliced/validation.smi>",
+		"logging_path": "</path/to/log/folder>",
+		"decoration_type": "single",
+		"with_weights": false,
+		"sample_size": 5,
+		"save_frequency": 1,
+		"epochs": 50,
+		"batch_size": 64,
+		"clip_gradients": 1.0,
+		"collect_stats_frequency": 1,
+		"learning_rate": {
+			"start":0.0001,
+			"min": 0.000001,
+			"gamma": 0.95,
+			"step": 1
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"run_type": "compute_tuples_likelihoods",
+	"parameters": {
+		    "input_csv_path":  "</path/to/scaffold-decoration/data.smi>",
+            "output_csv_path":  "</path/to/output.csv>",
+            "model_path": "</path/to/project/library_design/trained_models/reaction_based.model>",
+            "batch_size": 64,
+            "use_gzip": false
+		}
+}

@@ -1,0 +1,76 @@
+{
+	"run_type": "scoring",
+	"parameters": {
+		"input": "</path/to/data.smi>",
+		"output_folder": "</path/to/output/folder>",
+		"reaction_filter": {"type":"cumulative", "reactions":["[c;$(c1:[c,n]:[c,n]:[c,n]:[c,n]:[c,n]:1):1]-!@[N;$(NC)&!$(N=*)&!$([N-])&!$(N#*)&!$([ND1])&!$(N[O])&!$(N[C,S]=[S,O,N]),H2&$(Nc1:[c,n]:[c,n]:[c,n]:[c,n]:[c,n]:1):2]>>[Cl][c;$(c1:[c,n]:[c,n]:[c,n]:[c,n]:[c,n]:1):1].[N;$(NC)&!$(N=*)&!$([N-])&!$(N#*)&!$([ND3])&!$([ND4])&!$(N[c,O])&!$(N[C,S]=[S,O,N]),H2&$(Nc1:[c,n]:[c,n]:[c,n]:[c,n]:[c,n]:1):2]",
+		"[c;$(c1:[c,n]:[c,n]:[c,n]:[c,n]:[c,n]:1):1]-!@[N;$(NC)&!$(N=*)&!$([N-])&!$(N#*)&!$([ND1])&!$(N[O])&!$(N[C,S]=[S,O,N]):2]>>[Cl][c;$(c1:[c,n]:[c,n]:[c,n]:[c,n]:[c,n]:1):1].[N;$(NC)&!$(N=*)&!$([N-])&!$(N#*)&!$([ND3])&!$([ND4])&!$(N[c,O])&!$(N[C,S]=[S,O,N]):2]",
+		"[C:2]([#7;!D4:1])(=[O:3])[#6:4]>>[#7:1].[C,$(C=O):2](=[O:3])([O])[#6:4]", "[#6:3]([#7:1])=[O:4]>>[N:1].[#6:3](=[O:4])OC(=O)OC(C)(C)C",
+		"[O:2]=[#6:1][#7:5]>>[O:2]=[#6:1][OH1].[N;H1:5]", "[N;!$(n1****1);!$(n1*****1);!$(N(A=A));!$(N=*);!$([N-]);!$(N~[O,P,S,N]):1][*;$(c1aaaaa1),$(c1aaaa1);!$(C=*);!$(C(A=A));!$([C-]);!$(C~[O,P,S]):2]>>[N:1].[#6:2][F]",
+		"[S;$(S(=O)(=O)[C,N]):1]-!@[N+0;$(NC):2]>>[S;$(S(=O)(=O)[C,N]):1][Cl].[N;$(NC);!$(N=*);!$([N-]);!$(N#*);!$([ND3]);!$([ND4]);!$(N[c,O]);!$(N[C,S]=[S,O,N]):2]",
+		"[*;!$(c1ccccc1);$(c1[n,c]c[n,c]c[n,c]1):1]-!@[N;$(NC);!$(N=*);!$([N-]);!$(N#*);!$([ND3]);!$([ND4]);!$(n[c,O]);!$(N[C,S]=[S,O,N]):2]>>[*;!$(c1ccccc1);$(c1[n,c]c[n,c]c[n,c]1):1][F].[N;$(NC);!$(N=*);!$([N-]);!$(N#*);!$([ND3]);!$([ND4]);!$(N[c,O]);!$(N[C,S]=[S,O,N]):2]",
+		"[c:1]1[c:2][c:3][c:4][c:5][c:6]1-!@[N;D2:7]-!@[#6;D3;R;$([#6](=[N,n,C,c])[A,a;R]):8]>>[c:1]1[c:2][c:3][c:4][c:5][c:6]1[N;D1:7].[Cl][#6:8]",
+		"[c:1][C:2]>>[c:1][#9].[C:2]", "[c:1][N:2]>>[c:1][#9].[N:2]", "[c:1][O:2]>>[c:1][#9].[O:2]", "[c:1][S:2]>>[c:1][#9].[S:2]"]},
+		"scoring_function": {
+					"name": "custom_product",
+					"parallel": false,
+					"parameters": [
+						{
+							"component_type": "qed_score",
+							"name": "QED Score",
+							"weight": 2,
+							"model_path": null,
+							"smiles": [],
+							"specific_parameters": null
+						},
+						{
+					"component_type": "molecular_weight",
+					"model_path": null,
+					"name": "MW",
+					"smiles": [],
+					"specific_parameters": {
+						"coef_div": 650,
+						"coef_se": 25,
+						"coef_si": 10,
+						"high": 750,
+						"low": 450,
+						"transformation": true,
+						"transformation_type": "double_sigmoid"
+					},
+					"weight": 5
+					},
+						{
+							"component_type": "custom_alerts",
+							"name": "Custom alerts",
+							"weight": 1,
+							"model_path": null,
+							"smiles": [
+								"[*;r8]",
+								"[*;r9]",
+								"[*;r10]",
+								"[*;r11]",
+								"[*;r12]",
+								"[*;r13]",
+								"[*;r14]",
+								"[*;r15]",
+								"[*;r16]",
+								"[*;r17]",
+								"[#8][#8]",
+								"[#6;+]",
+								"[#16][#16]",
+								"[#7;!n][S;!$(S(=O)=O)]",
+								"[#7;!n][#7;!n]",
+								"C(=[O,S])[O,S]",
+								"[#7;!n][C;!$(C(=[O,N])[N,O])][#16;!s]",
+								"[#7;!n][C;!$(C(=[O,N])[N,O])][#7;!n]",
+								"[#7;!n][C;!$(C(=[O,N])[N,O])][#8;!o]",
+								"[#8;!o][C;!$(C(=[O,N])[N,O])][#16;!s]",
+								"[#8;!o][C;!$(C(=[O,N])[N,O])][#8;!o]",
+								"[#16;!s][C;!$(C(=[O,N])[N,O])][#16;!s]"
+							],
+							"specific_parameters": null
+						}
+			  ]
+			}
+	}
+}

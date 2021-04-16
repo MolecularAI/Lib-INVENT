@@ -1,0 +1,57 @@
+{
+	"run_type": "reinforcement_learning",
+		"logging": {
+		"sender": "",
+		"recipient": "local",
+		"logging_path": "</path/to/log/folder>",
+		"job_name": "example_job",
+		"job_id": "1"
+	},
+	"parameters": {
+		"actor": "trained_models/reaction_based.model",
+		"critic": "trained_models/reaction_based.model",
+		"scaffolds": ["[*:0]N1CCN(CC1)CCCCN[*:1]"],
+		"n_steps": 3,
+		"learning_rate": 0.0001,
+		"batch_size": 4,
+		"randomize_scaffolds": false,
+		"learning_strategy": {
+			"name": "dap",
+			"parameters":  {
+				"sigma": 120
+			}
+		},
+		"scoring_strategy": {
+			"name": "standard",
+			"reaction_filter": {
+                "reactions": {},
+                "type": "selective"
+            },
+			"diversity_filter": {
+				"name": "NoFilterWithPenalty"
+			},
+			"scoring_function": {
+				"name": "custom_sum",
+				"parallel": false,
+				"parameters": [
+					{
+					"component_type": "molecular_weight",
+					"model_path": null,
+					"name": "MW",
+					"smiles": [],
+					"specific_parameters": {
+						"coef_div": 650,
+						"coef_se": 25,
+						"coef_si": 10,
+						"high": 750,
+						"low": 450,
+						"transformation": true,
+						"transformation_type": "double_sigmoid"
+					},
+					"weight": 5
+					}
+				]
+			}
+		}
+	}
+}
