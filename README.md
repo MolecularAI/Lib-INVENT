@@ -1,7 +1,7 @@
 Implementation of the Lib-INVENT decorator model
 =======================================================================================================================================
 
-This repository holds the code used for chemical library generation using the Lib-INVENT tool as well as the initial training of the generative model.
+This repository holds the code used in the publication [Lib-INVENT: Reaction Based Generative Scaffold Decoration for in silico Library Design](https://chemrxiv.org/articles/preprint/Lib-INVENT_Reaction_Based_Generative_Scaffold_Decoration_for_in_silico_Library_Design/14473980). It holds the code needed to use the tool for chemical library generation as well as the initial training of the generative model.
 The code for preprocessing of the dataset is contained in a separate project called Library Design Datasets. 
 
 The scripts are organised in the following folder structure:
