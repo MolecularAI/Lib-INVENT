@@ -1,0 +1,13 @@
+####################
+# Git Line Endings #
+####################
+# Set default behaviour to automatically normalize all line endings
+* text=auto
+
+# Force bash screpts to use LF line ending
+*.sh text eol=lf
+
+###############################
+# Git Large File System (LFS) #
+# #############################
+
