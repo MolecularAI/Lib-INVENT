@@ -13,8 +13,8 @@ The scripts are organised in the following folder structure:
 - scoring: Assigns scores to input scaffolds based on a user-specified scoring function.
 - tuples likelihood computation: Calculates the likelihoods of scaffold-decoration pairs according to a given model. <br>
 
-(2) training_sets: The datasets used for training of the prior.
-- purged_chembl_sliced.smi.gz: The CHEMBl 27 compounds, filtered according to the rules described in the manuscript and sliced according to the reaction rules..
+(2) training_sets: The [datasets](https://doi.org/10.5281/zenodo.6627127) used for training of the prior.
+- purged_chembl_sliced.smi.gz: The CHEMBl 27 compounds, filtered according to the rules described in the manuscript and sliced according to the reaction rules.
 - chembl_train.smi.gz: The purged, sliced dataset used for model training. The DRD2 compounds are removed as described in the manuscript.
 
 (3) trained_models: The two models used for experiments:
@@ -89,6 +89,8 @@ Computes the likelihood of scaffold-decoration pairs passed to a trained model. 
 
 Usage examples
 --------------
+To download the [datasets](https://doi.org/10.5281/zenodo.6627127) from [Zenodo](https://zenodo.org/): `python download_training_datasets.py`
+
 To run with a single line command from the command line (provided the paths in the configuration JSON file are adapted as required):
 `python input.py examples/scoring.json`
 
