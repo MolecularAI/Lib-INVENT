@@ -1,3 +1,5 @@
+** Please note: this repository is no longer being maintained. **
+
 Implementation of the Lib-INVENT decorator model
 =======================================================================================================================================
 
